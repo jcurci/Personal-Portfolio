@@ -13,7 +13,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Personal-Portfolio/',
+  base: '/Personal-Portfolio/', //bugfix
   plugins: [
     VueRouter(),
     Layouts(),
