@@ -4,18 +4,27 @@
     <v-row>
       <v-col cols="12" md="4">
         <v-card>
-          <v-card-title>About me</v-card-title>
+          <v-card-title class="card-h1">About me</v-card-title>
           <v-card-text>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus facilisis ligula quis ultrices fringilla. Integer dignissim, lectus quis scelerisque suscipit, tellus velit maximus est, sed rhoncus erat metus id lacus. Morbi vulputate, nisl vel ultrices faucibus, velit urna porta nisi, eget volutpat nunc nisl vel libero. Mauris vulputate porta velit. In aliquet lacinia neque, in imperdiet sapien auctor nec. Integer et lacinia ante, sed vestibulum urna. Nam sodales erat et efficitur tincidunt. Mauris lacinia quam ut scelerisque ultricies. Curabitur vitae scelerisque quam. Ut faucibus metus vel nisl auctor, vel tempor erat facilisis. Maecenas laoreet faucibus mauris non sagittis.
-Duis tincidunt sed augue eu sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur tincidunt odio mauris, vitae congue odio maximus quis. Aliquam vel ornare mauris. Maecenas non auctor libero.
-            </p>
-          </v-card-text>
+              Tenho o desejo de progredir continuamente e assumir responsabilidades mais desafiadoras na área de desenvolvimento de software. Meu objetivo é integrar uma equipe colaborativa onde eu possa compartilhar minhas habilidades e aprender com meus colegas de equipe, evoluindo como profissional e entregando resultados de alta qualidade. Estou comprometido em enriquecer os projetos em que estiver envolvido, sempre buscando aprimorar meu trabalho e contribuir para o sucesso da equipe e da empresa.
+            </v-card-text>
+
+            <v-card-title class="card-h1">Education & Experience</v-card-title>
+            <div v-for="experience in Experiences" :key="experience.name" class="experience">
+            <v-card-text>
+              <h3 class="card-h3">{{ experience.name }}</h3>
+              <v-card-subtitle>{{  experience.duration }}</v-card-subtitle>
+              <p>{{ experience.description }}</p>
+              <p>{{ experience.location }}</p>
+            </v-card-text>
+            </div>
         </v-card>
       </v-col>
+      
+
       <v-col cols="12" md="4">
         <v-card>
-          <v-card-title>Skills</v-card-title>
+          <v-card-title class="card-h1">Skills</v-card-title>
           <v-card-text>
             <div v-for="skill in skills" :key="skill.name" class="skill">
               <p>{{ skill.name }} - {{ skill.value }}%</p>
@@ -28,6 +37,7 @@ Duis tincidunt sed augue eu sodales. Orci varius natoque penatibus et magnis dis
               ></v-progress-linear>
             </div>
           </v-card-text>
+
           <v-card-title>Languages</v-card-title>
           <v-card-text>
             <div v-for="language in languages" :key="language.name" class="skill">
@@ -43,11 +53,12 @@ Duis tincidunt sed augue eu sodales. Orci varius natoque penatibus et magnis dis
           </v-card-text>
         </v-card>
       </v-col>
+
       <v-col cols="12" md="4">
         <v-card>
-          <v-card-title>Resume</v-card-title>
+          <v-card-title class="card-h1">Resume</v-card-title>
           <v-card-text>
-            <p>You can see and dowload my resume clicking in the button bellow: </p>
+            <p>Dowload my resume clicking in the button bellow: </p>
             <v-spacer></v-spacer>
             <v-btn 
               class="dowload-btn"
@@ -67,16 +78,41 @@ export default {
   data() {
     return {
       skills: [
-        { name: 'Vue.js', value: 40 },
-        { name: 'Vuetify', value: 50 },
-        { name: 'JavaScript', value: 75 },
-        { name: 'HTML & CSS', value: 95 },
+        { name: 'Vue.js', value: 35},
+        { name: 'Vuetify', value: 45 },
+        { name: 'React', value: 20 },
+        { name: 'JavaScript', value: 65 },
+        { name: 'Python', value: 50 },
+        { name: 'HTML & CSS', value: 85 },
+        { name: 'Git & GitHub', value:  90},
         { name: 'UX/UI', value: 65 }
       ],
       languages: [
       { name: 'English', value: 70},
       { name: 'Spanish', value: 40},
       { name: 'Portuguese / Native', value: 100}
+      ],
+      Experiences: [
+        { name: 'RS Serviços', 
+        description: 'IT Intern',
+        duration: '07.2023 - 12.2023',
+        location: 'São Paulo - Brazil'
+        },
+
+        { name: 'MDS Group', 
+        description: 'Web developer Intern',
+        duration: '04.2024 - Current',
+        location: 'São Paulo - Brazil'
+        },
+        { name: 'Bachelor: Software Engineering', 
+        duration: '2023 - 2026',
+        location: 'FIAP | São Paulo - Brazil'
+        },
+        { name: 'Courses', 
+        description: 'Completed courses about development, blockchain, scrum and sustainability.',
+        duration: 'Fiap | Alura | Origamid'
+        }
+
       ]
     };
   },
@@ -98,13 +134,24 @@ h1 {
   font-family: "Lora", serif;
   text-decoration: underline #FFEA00;
 }
+.card-h1 {
+  font-size: 32px;
+  font-family: "Lora", serif;
+}
+.card-h3 {
+  font-size: 20px;
+  font-family: "Lora", serif;
+  text-decoration: underline #FFEA00;
+}
+.v-card-subtitle{
+  margin-left: -15px;
+}
 
 .skill {
   margin-bottom: 20px;   
 }
 .dowload-btn{
   transform: scale(1);
-  box-shadow: 0 2px 15px rgba(219, 187, 4, 0.5);
   border: 1.5px solid #FFEA00;
   border-radius: 10px;
   margin-top: 15px; 
@@ -112,6 +159,17 @@ h1 {
 }
 
 .dowload-btn:hover {
-  background-color: #FFEA00;
+  border-color: #FFEA00; 
+  transform: translateY(-3px);
+  background-color: #312d018e;
+  box-shadow: 0 2px 15px #FFEA00;
+}
+.v-card{
+  border-radius: 10px;
+  transition: transform 0.5s, box-shadow 0.2s;
+  border: 2px solid #FFEA00;
+}
+.v-card:hover{
+  transform: translateY(-5px);
 }
 </style>

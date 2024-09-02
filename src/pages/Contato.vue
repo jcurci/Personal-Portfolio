@@ -1,93 +1,124 @@
 <template>
-  <div>
-    <h1 align="center">Let's talk!</h1>
-  </div>
-    <form @submit.prevent="submit">
-      <v-text-field
-        v-model="name.value.value"
-        :counter="10"
-        :error-messages="name.errorMessage.value"
-        label="Name"
-      ></v-text-field>
+  <v-container>
+        <h1 class="title">Get in touch</h1>
 
-      <v-text-field
-        v-model="email.value.value"
-        :error-messages="email.errorMessage.value"
-        label="E-mail"
-      ></v-text-field>
+    <v-row justify="center">
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-card-title class="card-h1">Send me a message</v-card-title>
+          <v-card-text>
+            <v-form ref="contactForm" v-model="valid" @submit.prevent="submitForm">
+              <v-text-field
+                v-model="form.name"
+                label="Name"
+                :rules="[v => !!v || 'Name is required']"
+                required
+              ></v-text-field>
 
-      <v-text-field
-        label="Message"
-      ></v-text-field>
-  
-      <v-btn
-        class="submit-btn"
-        type="submit"
-      >
-        Submit
-      </v-btn>
-  
-      <v-btn @click="handleReset"
-      class="clear">
-        Clear
-      </v-btn>
-    </form>
-</template>  
-<script setup>
-  import { useField, useForm } from 'vee-validate'
+              <v-text-field
+                v-model="form.email"
+                label="Email"
+                :rules="[v => !!v || 'Email is required', v => /.+@.+\..+/.test(v) || 'E-mail must be valid']"
+                required
+              ></v-text-field>
 
-  const { handleSubmit, handleReset } = useForm({
-    validationSchema: {
-      name (value) {
-        if (value?.length >= 2) return true
+              <v-textarea
+                v-model="form.message"
+                label="Message"
+                :rules="[v => !!v || 'Message is required']"
+                required
+              ></v-textarea>
 
-        return 'Name needs to be at least 2 characters.'
-      },
-      email (value) {
-        if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
+              <v-btn
+                :disabled="!valid"
+                color="primary"
+                @click="submitForm"
+                class="mt-4"
+              >
+                Send Message
+              </v-btn>
+            </v-form>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      
+      <v-col cols="12" md="6">
+        <v-card class="mb-4">
+          <v-card-title class="card-h1">Location & Availability</v-card-title>
+          <v-card-text>
+            <p><strong>Location:</strong> São Paulo, Brazil</p>
+            <p><strong>Availability:</strong> Monday to Friday, 9 AM - 6 PM (BRT)</p>
+          </v-card-text>
+        </v-card>
 
-        return 'Insert a valid e-mail.'
+        <v-card class="mt-4">
+          <v-card-title class="card-h1">Find Me</v-card-title>
+          <v-card-text>
+            <iframe
+              width="100%"
+              height="220"
+              frameborder="0"
+              style="border:0"
+              allowfullscreen
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.5236338917177!2d-46.7285012850218!3d-23.574103184673185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef88d26458b4d%3A0x55aaf38a7b29bc73!2sButant%C3%A3%2C%20S%C3%A3o%20Paulo%20-%20State%20of%20S%C3%A3o%20Paulo%2C%2005503-090%2C%20Brazil!5e0!3m2!1sen!2sus!4v1693329909876!5m2!1sen!2sus"
+            ></iframe>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+export default {
+  name: 'Portfolio',
+  data() {
+    return {
+      valid: false,
+      form: {
+        name: '',
+        email: '',
+        message: ''
       }
-    },
-  })
-  const name = useField('name')
-  const email = useField('email')
-  const submit = handleSubmit(values => {
-    alert(JSON.stringify(values, null, 2))
-  })
-</script>
-<style scoped>
-form{
-  padding: 40px;
+    };
+  },
+  methods: {
+    submitForm() {
+      alert('Message sent successfully!');
+      this.$refs.contactForm.reset();
+    }
+  }
 }
-h1{
-  padding: 20px;
+</script>
+
+<style scoped>
+.title {
+  padding: 18px;
   font-size: 42px;
   font-family: "Lora", serif;
+  text-align: center;
   text-decoration: underline #FFEA00;
 }
-.submit-btn{
-  transform: scale(1);
-  box-shadow: 0 2px 15px rgba(219, 187, 4, 0.5);
-  border: 1.5px solid #FFEA00;
+.card-h1 {
+  font-size: 28px;
+  font-family: "Lora", serif;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.v-card {
   border-radius: 10px;
-  margin:10px;
-  transition: all 0.3s ease; 
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid #FFEA00;
 }
-
-.submit-btn:hover {
-  background-color: #FFEA00;
+.v-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-.clear{
-  transform: scale(1);
-  box-shadow: 0 2px 15px rgba(255, 0, 0, 0.664);
-  border: 1.5px solid #ff0000;
-  border-radius: 10px;
-  transition: all 0.3s ease; 
+.v-btn {
+  color: #FFEA00;
+  transition: color 0.3s;
 }
-
-.clear:hover {
-  background-color: #ff0000;
+.v-btn:hover {
+  color: #312d01;
 }
-
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     app
-    color="#212121"
+    color="#252525"
     elevation = "24"
   >
     <v-toolbar-title>
@@ -70,15 +70,17 @@ a{
 .nav-button {
   color: #f7f7f7;
   border: 1.5px solid #FFEA00; 
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: #252525;
   margin-left: 10px; 
   transition: all 0.3s ease; 
 }
 
 .nav-button:hover {
-  background-color: rgba(255, 215, 0, 0.2); 
   border-color: #FFEA00; 
+  transform: translateY(-3px);
+  background-color: #312d018e;
+  box-shadow: 0 2px 15px #FFEA00;
 }
 
 .v-icon {
