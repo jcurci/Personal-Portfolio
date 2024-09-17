@@ -4,7 +4,7 @@
       <v-row justify="center">
         <v-col cols="12" sm="12" md="4" v-for="project in projects" :key="project.title">
           <v-card class="project-card" elevation="3">
-            <v-img :src="project.image" height="120px" :class="{ 'hover-image': hover }"></v-img>
+            <v-img :src="project.image" height="180px" cover :class="{ 'hover-image': hover }"></v-img>
             <v-card-title class="card-title">{{ project.title }}</v-card-title>
             <v-card-text class="card-text">{{ project.description }}</v-card-text>
             <v-card-actions>
@@ -112,5 +112,6 @@
     filter: brightness(0.95);
     border-radius: 8px 8px 0 0;
   }
+
   </style>
   
