@@ -119,8 +119,8 @@ export default {
   methods: {
     downloadResume() {
       const link = document.createElement('a');
-      link.href = '/path/to/your/resume.pdf';
-      link.download = 'Curriculo.pdf';
+      link.href = '../documentos/JhonatanResume.pdf';
+      link.download = 'JhonatanResume.pdf';
       link.click();
     }
   }
