@@ -13,11 +13,13 @@
         </v-btn>  
       </div>
     </v-col>
-    <v-row cols="12">
-      <v-col cols="12">
-        <p class="tittle">Personal Web Portfolio - © 2024</p> 
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row cols="12">
+        <v-col cols="12">
+          <p class="tittle">Personal Web Portfolio - © 2024</p> 
+        </v-col>
+      </v-row>
+    </v-container>
   </footer>
 </template>
 <script>

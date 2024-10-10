@@ -6,7 +6,12 @@
         <v-card>
           <v-card-title class="card-h1">About me</v-card-title>
           <v-card-text>
-              Tenho o desejo de progredir continuamente e assumir responsabilidades mais desafiadoras na área de desenvolvimento de software. Meu objetivo é integrar uma equipe colaborativa onde eu possa compartilhar minhas habilidades e aprender com meus colegas de equipe, evoluindo como profissional e entregando resultados de alta qualidade. Estou comprometido em enriquecer os projetos em que estiver envolvido, sempre buscando aprimorar meu trabalho e contribuir para o sucesso da equipe e da empresa.
+              Tenho o desejo de progredir continuamente e assumir responsabilidades mais desafiadoras
+               na área de desenvolvimento de software. Meu objetivo é integrar uma equipe colaborativa 
+               onde eu possa compartilhar minhas habilidades e aprender com meus colegas de equipe, evoluindo 
+               como profissional e entregando resultados de alta qualidade. Estou comprometido em enriquecer 
+               os projetos em que estiver envolvido, sempre buscando aprimorar meu trabalho e contribuir para 
+               o sucesso da equipe e da empresa.
             </v-card-text>
 
             <v-card-title class="card-h1">Education & Experience</v-card-title>
@@ -81,8 +86,9 @@ export default {
         { name: 'Vue.js', value: 35},
         { name: 'Vuetify', value: 45 },
         { name: 'React', value: 20 },
-        { name: 'JavaScript', value: 65 },
-        { name: 'Python', value: 50 },
+        { name: 'Angular', value: 10 },
+        { name: 'JavaScript', value: 60 },
+        { name: 'Python', value: 40},
         { name: 'HTML & CSS', value: 85 },
         { name: 'Git & GitHub', value:  90},
         { name: 'UX/UI', value: 65 }
