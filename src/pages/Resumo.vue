@@ -123,13 +123,18 @@ export default {
     };
   },
   methods: {
-    downloadResume() {
-      const link = document.createElement('a');
-      link.href = '../documentos/JhonatanResume.pdf';
-      link.download = 'JhonatanResume.pdf';
-      link.click();
-    }
+  downloadResume() {
+    const link = document.createElement('a');
+    link.href = '/Personal-Portfolio/Downloads/JhonatanResume.pdf';
+    link.setAttribute('download', 'JhonatanResume.pdf');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
+}
+
+
+
 }
 </script>
 

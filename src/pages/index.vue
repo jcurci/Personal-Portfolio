@@ -2,7 +2,7 @@
   <v-container id="welcomeMsg">
     <img
       class="front-icon"
-      src="../assets/img/Frontend-icon.png"
+      src="@/assets/img/Frontend-icon.png"
       align="right"
       alt="Front-End Icon"
     />
