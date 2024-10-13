@@ -1,18 +1,20 @@
 <template>
     <div>
         <h1 class="title" align="center">My Projects</h1>
-      <v-row justify="center">
-        <v-col cols="12" sm="12" md="4" v-for="project in projects" :key="project.title">
-          <v-card class="project-card" elevation="3">
-            <v-img :src="project.image" height="180px" cover :class="{ 'hover-image': hover }"></v-img>
-            <v-card-title class="card-title">{{ project.title }}</v-card-title>
-            <v-card-text class="card-text">{{ project.description }}</v-card-text>
-            <v-card-actions>
-              <v-btn :href="project.link" target="_blank" class="project-btn">View {{ project.title }}</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="12" sm="12" md="4" v-for="project in projects" :key="project.title">
+            <v-card class="project-card" elevation="3">
+              <v-img :src="project.image" height="180px" cover :class="{ 'hover-image': hover }"></v-img>
+              <v-card-title class="card-title">{{ project.title }}</v-card-title>
+              <v-card-text class="card-text">{{ project.description }}</v-card-text>
+              <v-card-actions>
+                <v-btn :href="project.link" target="_blank" class="project-btn">View {{ project.title }}</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
   </template>
   
@@ -65,7 +67,7 @@
   </script>
   
   <style scoped>
-  .title {
+    .title {
     padding: 28px;
     font-size: 42px; 
     font-family: "Lora", serif;
